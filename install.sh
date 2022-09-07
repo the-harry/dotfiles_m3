@@ -20,7 +20,7 @@ setup_git_account() {
   git config --global user.email $gitmail
 }
 
-if [ ! -d "$HOME/.dotfiles" ]
+if [ ! -d "$HOME/.dotfiles_m2" ]
 then
   echo "Installing Dotfiles"
   echo "We'll install:"
