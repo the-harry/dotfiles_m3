@@ -18,7 +18,6 @@ task :install do
   ]))
 
   install_prereqs
-  install_fonts
   install_vim_plugins
   install_zsh_syntax_highlighting
   install_tmux_battery_plugin
@@ -55,14 +54,6 @@ def install_prereqs
   run_command %{ $HOME/.dotfiles/pre_reqs/mac.sh } if macos?
 end
 
-def install_fonts
-  puts "======================================================"
-  puts "Installing patched fonts for Powerline/Lightline."
-  puts "======================================================"
-  run_command %{ mkdir -p ~/.fonts && cp ~/.dotfiles/fonts/* ~/.fonts && fc-cache -vf ~/.fonts } if linux?
-  puts
-end
-
 def install_vim_plugins
   system "vim -N \"+set hidden\" \"+syntax on\" +PlugInstall +qall"
 end
@@ -84,7 +75,6 @@ end
 def tmux_copy_mode
   folder = "$HOME/.dotfiles"
   run_command %{ cp #{folder}/templates/copy_mode_mac.conf.tmp $HOME/.tmux_copy_mode.conf } if macos?
-  run_command %{ cp #{folder}/templates/copy_mode_linux.conf.tmp $HOME/.tmux_copy_mode.conf } if linux?
 end
 
 def change_shell
