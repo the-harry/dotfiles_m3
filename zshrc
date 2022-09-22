@@ -81,3 +81,37 @@ export PATH=$PATH:/usr/local/go/bin
 fpath=(${ASDF_DIR}/completions $fpath)
 # initialise completions with ZSH's compinit
 autoload -Uz compinit && compinit
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export REQUESTS_CA_BUNDLE='/Library/Application Support/Netskope/STAgent/download/nscacert.pem'
+export NODE_EXTRA_CA_CERTS='/Library/Application Support/Netskope/STAgent/data/nscacert.pem'
+# export SSL_CERT_FILE='/Library/Application Support/Netskope/STAgent/data/nscacert.pem'
+
+export BUNDLE_RUBYGEMS__PKG__GITHUB__COM='GITHUB'
+export BUNDLE_GITHUB__COM='GITHUB'
+
+export GITHUB_API_TOKEN='GITHUB'
+export BUNDLE_ENTERPRISE__CONTRIBSYS__COM="ONE_PASS"
+
+export AWS_REGION='REGION'
+export AWS_USER='USER'
+export MFA_ARN='ARN'
+export AWS_CA_BUNDLE='/etc/ssl/certs/cacert.pem'
+
+export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
+export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
+
+export LDFLAGS='L/usr/local/opt/openssl/lib'
+export CPPFLAGS='-I/usr/local/opt/openssl/include'
+export PKG_CONFIG_PATH='/usr/local/opt/openssl/lib/pkgconfig'
+
+export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
+
+export HTTP_PROXY="NET CONFIG PROXY(FULL ADDRESS)"
+
+# RPROMPT='%{$fg[yellow]%}[%D{%T}] '$RPROMPT
+
+# zle_prefix='time '
+# zle-line-init() if [[ $CONTEXT = start ]] LBUFFER=$zle_prefix$LBUFFER
+# zle -N zle-line-init

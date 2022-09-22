@@ -10,7 +10,7 @@ This project is a fork from [my old dotfile](https://github.com/the-harry/dotfil
 
 * Homebrew:
 
-Follow the instructions on brew.sh
+Follow the instructions on brew.sh if you don't have it installed yet.
 
 ## Install
 
@@ -21,6 +21,16 @@ sh -c "`curl -fSs https://raw.githubusercontent.com/the-harry/dotfiles_m2/master
 ```
 
 Type your password to change your default shell to `zsh`
+
+## After install
+
+* Go into Sys Pref > Network > Advanced > Proxies > Automatic Proxy Configuration and copy and paste the full address here in `~/.dotfiles_m2/zshrc`:
+
+`export HTTP_PROXY=http://proxy.server.com:portnumber`
+
+Also edit other variables that depends on tokens like GitHub, 1pass, etc... After that just source it again:
+
+`source ~/.dotfiles_m2/zshrc`
 
 ## Docs
 
