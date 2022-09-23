@@ -14,6 +14,28 @@ ruby_install() {
   asdf global ruby 3.0.3
 }
 
+aws_install() {
+  echo $(printenv HOME) | xargs -I '{}' sed -i.bu 's,TO_BE_REPLACED,{},g' ~/.dotfiles_m2/aws_choices.xml
+  curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
+  installer -pkg AWSCLIV2.pkg \
+            -target CurrentUserHomeDirectory \
+            -applyChoiceChangesXML ~/.dotfiles_m2/aws_choices.xml
+
+  sudo ln -s $(printenv HOME)/aws-cli/aws /usr/local/bin/aws
+  sudo ln -s $(printenv HOME)/aws-cli/aws_completer /usr/local/bin/aws_completer
+
+  which aws
+  aws --version
+
+  rm AWSCLIV2.pkg aws_choices.xml.bu
+
+  curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/session-manager-plugin.pkg" -o ~/.dotfiles_m2/session-manager-plugin.pkg
+  sudo installer -pkg ~/.dotfiles_m2/session-manager-plugin.pkg -target /
+  sudo ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
+  session-manager-plugin
+  # pip install aws-mfa
+}
+
 ruby_install() {
   asdf plugin add nodejs
   # bash ~/.asdf/plugins/nodejs/bin/import-release-team-keyring
@@ -52,6 +74,7 @@ then
       asdf_install
       ruby_install
       node_install
+      aws_install
       ;;
     Linux)
       echo 'You are using a Linux machine which is not recommended to use with our' \

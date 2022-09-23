@@ -32,6 +32,10 @@ Also edit other variables that depends on tokens like GitHub, 1pass, etc... Afte
 
 `source ~/.dotfiles_m2/zshrc`
 
+* Manually download tunnelBrick VPN.
+
+* Clone [smartaws](git clone git@github.com:smartpension/trekkie-toolkit.git) and [install it](https://github.com/smartpension/trekkie-toolkit/tree/main/aws#smart-aws)
+
 ## Docs
 
 [Vim Key Mapping](Vim.md)
