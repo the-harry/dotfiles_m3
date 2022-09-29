@@ -97,7 +97,7 @@ export BUNDLE_ENTERPRISE__CONTRIBSYS__COM="ONE_PASS"
 export AWS_REGION='REGION'
 export AWS_USER='USER'
 export MFA_ARN='ARN'
-export AWS_CA_BUNDLE='/etc/ssl/certs/cacert.pem'
+export AWS_CA_BUNDLE='/etc/ssl/cert.pem'
 
 export PATH="/usr/local/opt/openssl@1.1/bin:$PATH"
 export PATH="/usr/local/opt/mysql@5.7/bin:$PATH"
