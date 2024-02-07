@@ -24,6 +24,7 @@ task :install do
   tmux_copy_mode
   change_shell
   installation_message
+  install_lazyvim
 end
 
 private
@@ -52,6 +53,15 @@ end
 
 def install_prereqs
   run_command %{ $HOME/.dotfiles_m3/pre_reqs/mac.sh } if macos?
+end
+
+def install_lazyvim
+  run_command %{ mv ~/.config/nvim{,.bak} }
+  run_command %{ mv ~/.local/share/nvim{,.bak} }
+  run_command %{ mv ~/.local/state/nvim{,.bak} }
+  run_command %{ mv ~/.cache/nvim{,.bak} }
+  run_command %{ git clone https://github.com/LazyVim/starter ~/.config/nvim }
+  run_command %{ rm -rf ~/.config/nvim/.git }
 end
 
 def install_vim_plugins
@@ -88,8 +98,8 @@ def installation_message
   puts '======================================================================='
   puts 'Thank you!'
   puts ''
-  puts ''
   puts "- Change your terminal window to Run command as login shell and RESTART"
+  puts 'AFTER THIS MESSAGE LazyVim WILL INSTALL, RUN THE UDPATES AND :LazyHealth'
   puts '======================================================================='
 end
 
