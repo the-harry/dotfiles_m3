@@ -47,7 +47,7 @@ ruby_install() {
 }
 
 setup_git_account() {
-  git config --global core.editor vim
+  git config --global core.editor nvim
 
   read -p 'Git username: ' gituser
   git config --global user.name $gituser
