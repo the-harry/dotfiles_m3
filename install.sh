@@ -56,6 +56,10 @@ setup_git_account() {
   git config --global user.email $gitmail
 }
 
+change_wallpaper {
+  osascript -e "tell application \"Finder\" to set desktop picture to POSIX file \"/Users/$USER/.dotfiles_m3/wallpaper.jpg\""
+}
+
 if [ ! -d "$HOME/.dotfiles_m3" ]
 then
   echo "Installing Dotfiles"
@@ -75,6 +79,7 @@ then
       ruby_install
       node_install
       aws_install
+      change_wallpaper
       ;;
     Linux)
       echo 'You are using a Linux machine which is not recommended to use with our' \
