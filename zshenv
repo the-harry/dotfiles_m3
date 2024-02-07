@@ -1,5 +1,5 @@
-# use vim as the visual editor
-export VISUAL=vim
+# use nvim as the visual editor
+export VISUAL=nvim
 export EDITOR=$VISUAL
 export LC_ALL=$LANG
 
