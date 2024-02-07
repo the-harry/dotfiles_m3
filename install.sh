@@ -1,6 +1,6 @@
 #!/bin/sh
 
-zsh-syntax-highlighting_install() {
+zsh_syntax_highlighting_install() {
   git clone https://github.com/zsh-users/zsh-syntax-highlighting.git ~/.zsh-syntax-highlighting
 }
 
@@ -15,11 +15,11 @@ ruby_install() {
 }
 
 aws_install() {
-  echo $(printenv HOME) | xargs -I '{}' sed -i.bu 's,TO_BE_REPLACED,{},g' ~/.dotfiles_m2/aws_choices.xml
+  echo $(printenv HOME) | xargs -I '{}' sed -i.bu 's,TO_BE_REPLACED,{},g' ~/.dotfiles_m3/aws_choices.xml
   curl "https://awscli.amazonaws.com/AWSCLIV2.pkg" -o "AWSCLIV2.pkg"
   installer -pkg AWSCLIV2.pkg \
             -target CurrentUserHomeDirectory \
-            -applyChoiceChangesXML ~/.dotfiles_m2/aws_choices.xml
+            -applyChoiceChangesXML ~/.dotfiles_m3/aws_choices.xml
 
   sudo ln -s $(printenv HOME)/aws-cli/aws /usr/local/bin/aws
   sudo ln -s $(printenv HOME)/aws-cli/aws_completer /usr/local/bin/aws_completer
@@ -29,8 +29,8 @@ aws_install() {
 
   rm AWSCLIV2.pkg aws_choices.xml.bu
 
-  curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/session-manager-plugin.pkg" -o ~/.dotfiles_m2/session-manager-plugin.pkg
-  sudo installer -pkg ~/.dotfiles_m2/session-manager-plugin.pkg -target /
+  curl "https://s3.amazonaws.com/session-manager-downloads/plugin/latest/mac/session-manager-plugin.pkg" -o ~/.dotfiles_m3/session-manager-plugin.pkg
+  sudo installer -pkg ~/.dotfiles_m3/session-manager-plugin.pkg -target /
   sudo ln -s /usr/local/sessionmanagerplugin/bin/session-manager-plugin /usr/local/bin/session-manager-plugin
   session-manager-plugin
   # pip install aws-mfa
@@ -56,7 +56,7 @@ setup_git_account() {
   git config --global user.email $gitmail
 }
 
-if [ ! -d "$HOME/.dotfiles_m2" ]
+if [ ! -d "$HOME/.dotfiles_m3" ]
 then
   echo "Installing Dotfiles"
   echo "We'll install:"
@@ -70,7 +70,7 @@ then
       echo "  - vim (macvim)"
       echo "  - atom (mac)"
 
-      zsh-syntax-highlighting_install
+      zsh_syntax_highlighting_install
       asdf_install
       ruby_install
       node_install
@@ -91,8 +91,8 @@ then
       return
       ;;
   esac
-  git clone --depth=10 https://github.com/the-harry/dotfiles_m2.git "$HOME/.dotfiles_m2"
-  cd "$HOME/.dotfiles_m2"
+  git clone --depth=10 https://github.com/the-harry/dotfiles_m3.git "$HOME/.dotfiles_m3"
+  cd "$HOME/.dotfiles_m3"
 
   setup_git_account
 

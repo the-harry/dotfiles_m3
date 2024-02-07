@@ -51,7 +51,7 @@ def install_files(files)
 end
 
 def install_prereqs
-  run_command %{ $HOME/.dotfiles_m2/pre_reqs/mac.sh } if macos?
+  run_command %{ $HOME/.dotfiles_m3/pre_reqs/mac.sh } if macos?
 end
 
 def install_vim_plugins
@@ -73,7 +73,7 @@ def install_tmux_battery_plugin
 end
 
 def tmux_copy_mode
-  folder = "$HOME/.dotfiles_m2"
+  folder = "$HOME/.dotfiles_m3"
   run_command %{ cp #{folder}/templates/copy_mode_mac.conf.tmp $HOME/.tmux_copy_mode.conf } if macos?
 end
 

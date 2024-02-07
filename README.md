@@ -1,12 +1,8 @@
-# Dotfiles M2
-
-## Source of inspiration
-
-This project is a fork from [my old dotfile](https://github.com/the-harry/dotfiles).
+# Dotfiles M3
 
 ## Pre-Reqs
 
-#### Mac M2 chips
+#### Mac M3 chips
 
 * Homebrew:
 
@@ -17,24 +13,16 @@ Follow the instructions on brew.sh if you don't have it installed yet.
 Run follow command:
 
 ```
-sh -c "`curl -fSs https://raw.githubusercontent.com/the-harry/dotfiles_m2/master/install.sh`"
+sh -c "`curl -fSs https://raw.githubusercontent.com/the-harry/dotfiles_m3/master/install.sh`"
 ```
 
 Type your password to change your default shell to `zsh`
 
 ## After install
 
-* Go into Sys Pref > Network > Advanced > Proxies > Automatic Proxy Configuration and copy and paste the full address here in `~/.dotfiles_m2/zshrc`:
+Edit other env vars that depends on tokens like GitHub, 1pass, etc... After that just source it again:
 
-`export HTTP_PROXY=http://proxy.server.com:portnumber`
-
-Also edit other variables that depends on tokens like GitHub, 1pass, etc... After that just source it again:
-
-`source ~/.dotfiles_m2/zshrc`
-
-* Manually download tunnelBrick VPN.
-
-* Clone [smartaws](git clone git@github.com:smartpension/trekkie-toolkit.git) and [install it](https://github.com/smartpension/trekkie-toolkit/tree/main/aws#smart-aws)
+`source ~/.dotfiles_m3/zshrc`
 
 ## Docs
 
